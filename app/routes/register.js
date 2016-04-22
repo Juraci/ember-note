@@ -8,10 +8,11 @@ export default Ember.Route.extend({
             });
             user.save().then(() => {
                 console.log('save successful');
-                this.controller.set('message', `A new user with name ${this.controllet.get('name')} was added!`);
+                this.controller.set('message', `A new user with name ${this.controller.get('name')} was added!`);
                 this.controller.set('name', null);
             }).catch((err) => {
                 console.log(err);
+                this.controller.set('message', `Something went wrong`);
             });
         }
     }
