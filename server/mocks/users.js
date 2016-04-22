@@ -8,7 +8,7 @@ module.exports = function(app) {
   var userDB = new nedb({ filename : 'users', autoload: true });
 
   usersRouter.get('/', function(req, res) {
-      userDB.find({}, function(err, users) {
+      userDB.find(req.query, function(err, users) {
         res.send({'users': users});
       });
   });

@@ -12,7 +12,7 @@ export default Ember.Route.extend({
                 this.controller.set('name', null);
             }).catch((err) => {
                 console.log(err);
-                this.controller.set('message', `Something went wrong`);
+                this.controller.set('message', `Error: could not save the user`);
             });
         }
     }
