@@ -16,7 +16,7 @@ module.exports = function(app) {
   usersRouter.post('/', function(req, res) {
      // Look for the most recently created record and use it to set the id
     // field of our incoming record, which is required by Ember Data
-    userDB.find({}).sort({id : -1}).limit(1).exec(function(err, users) {
+    userDB.find({}).sort({id : 0}).limit(1).exec(function(err, users) {
         if(users.length !== 0) {
             req.body.user.id = users[0].id + 1;
         } else {

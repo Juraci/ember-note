@@ -18,3 +18,5 @@ testem.log
 
 #nedb file
 users
+notes
+notebooks
