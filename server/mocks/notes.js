@@ -45,7 +45,13 @@ module.exports = function(app) {
   });
 
   notesRouter.delete('/:id', function(req, res) {
-      res.status(204).end();
+      noteDB.remove({id: parseInt(req.params.id)}, {}, function(err, numRemoved) {
+          if(err) {
+              throw err;
+          }
+          console.log('Num removed: ' + numRemoved);
+          res.status(204).end();
+      });
   });
 
   // The POST and PUT call will not contain a request body
